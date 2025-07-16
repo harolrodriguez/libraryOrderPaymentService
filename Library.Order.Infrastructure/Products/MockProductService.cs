@@ -21,16 +21,4 @@ namespace Library.Order.Infrastructure.Products
             return Task.FromResult(foundProducts);
         }
     }
-
-    public interface IProductService
-    {
-    }
-
-    public class ProductDetailsDto
-    {
-        public Guid ProductId { get; set; }
-        public decimal Price { get; set; }
-        public bool IsPhysical { get; set; }
-        public int StockQuantity { get; set; }
-    }
 }

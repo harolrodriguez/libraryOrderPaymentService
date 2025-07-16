@@ -1,9 +1,7 @@
+using System.Reflection;
 using Library.Order.Application.Interfaces;
 using Library.Order.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Library.Order.Infrastructure.Persistence
 {
@@ -23,10 +21,6 @@ namespace Library.Order.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
         }
 
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) { return await base.SaveChangesAsync(cancellationToken); }
-    }
-
-    public interface IUnitOfWork
-    {
+        async Task<int> IUnitOfWork.SaveChangesAsync(CancellationToken cancellationToken) => await base.SaveChangesAsync(cancellationToken);
     }
 }

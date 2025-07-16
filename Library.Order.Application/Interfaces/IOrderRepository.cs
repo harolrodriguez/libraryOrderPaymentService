@@ -1,6 +1,4 @@
 using Library.Order.Domain.Entities;
-using System;
-using System.Threading.Tasks;
 
 namespace Library.Order.Application.Interfaces
 {

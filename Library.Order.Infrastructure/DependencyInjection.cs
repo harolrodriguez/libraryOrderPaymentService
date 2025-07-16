@@ -23,8 +23,4 @@ namespace Library.Order.Infrastructure
             return services;
         }
     }
-
-    public interface IOrderRepository
-    {
-    }
 }

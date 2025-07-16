@@ -13,7 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateOrderCommandHandler).Assembly));
+builder.Services.AddMediatR(
+    typeof(CreateOrderCommandHandler).Assembly
+);
 builder.Services.AddAutoMapper(typeof(OrderMappingProfile).Assembly);
 
 builder.Services.AddControllers();

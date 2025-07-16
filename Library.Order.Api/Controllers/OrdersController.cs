@@ -34,8 +34,8 @@ namespace Library.Order.Api.Controllers
                 // Usa un ID de usuario de ejemplo si no se provee. En un entorno real, vendría de la autenticación.
                 if (command.UserId == Guid.Empty) command.UserId = Guid.Parse("f0e1d2c3-b4a5-6789-0123-456789abcdef");
 
-                var response = await _mediator.Send(command);
-                return CreatedAtAction(nameof(GetOrderById), new { id = response.OrderId }, response);
+                var response = (OrderResponse?)await _mediator.Send(command);
+                return CreatedAtAction(nameof(GetOrderById), new { id = response!.OrderId }, response);
             }
             catch (ApplicationException ex) { return BadRequest(new { message = ex.Message }); }
             catch (Exception ex)
